@@ -1,3 +1,34 @@
+function validarNombres(elemento){
+
+    //console.log(elemento.value)
+    if(elemento.value.length > 0){
+        var miAscii = elemento.value.charCodeAt(elemento.value.length-1)
+       //console.log(miAscii)
+        
+        if(miAscii >= 97 && miAscii <= 122 || miAscii==32){
+            
+            nombres(elemento)
+            return true
+        }else {
+            elemento.value = elemento.value.substring(0, elemento.value.length-1)
+            return false
+        }
+    }else{
+        return true
+    }
+}
+
+function nombres(e){
+
+    var vector=e.value.split(" ")
+    //
+    console.log(vector.length)
+    if (vector.length >2 ) {
+        e.value = e.value.substring(0, e.value.length-1)
+        document.getElementById("mensajeNombre").innerHTML = 'No se haceptan mas de 2 nombres'  
+    }
+
+}
 
 function validarCedula() {
 

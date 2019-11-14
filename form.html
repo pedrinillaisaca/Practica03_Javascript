@@ -15,12 +15,13 @@
     <form id="formulario01" method="POST" action="" onsubmit="return validar()">
 
         <div><label for="cedula">Cedula:</label>
-            <input type="text" id="ced" name="nombres" value="" placeholder="" onkeyup="return validarCedula()"/>
+            <input type="text" id="ced" name="cedula" value="" placeholder="" onkeyup="return validarCedula()"/>
             <span id="mensajeCedula" class="error"></span>
         </div>
 
-        <div><label for="name">Nombres:</label>
-            <input type="text" id="name" />
+        <div><label for="nombre">Nombres:</label>
+            <input type="text" id="name"   name="nombre"  onkeyup="return validarNombres(this)"/>
+            <span id="mensajeNombre" class="error"></span>
         </div>
 
 
