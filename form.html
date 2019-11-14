@@ -15,37 +15,47 @@
     <form id="formulario01" method="POST" action="" onsubmit="return validar()">
 
         <div><label for="cedula">Cedula:</label>
-            <input type="text" id="ced" name="cedula" value="" placeholder="" onkeyup="return validarCedula()"/>
+            <input type="text" id="ced" name="cedula" value="" placeholder="" onkeyup="return validarCedula()" />
             <span id="mensajeCedula" class="error"></span>
         </div>
 
         <div><label for="nombre">Nombres:</label>
-            <input type="text" id="name"   name="nombre"  onkeyup="return validarNombres(this)"/>
+            <input type="text" id="name" name="nombre" onkeyup="return validarNombres(this)" />
             <span id="mensajeNombre" class="error"></span>
         </div>
 
 
         <div> <label for="ape">Apellidos:</label>
-            <input type="text" id="ape" />
+            <input type="text" id="ape" name="Apellidos" onkeyup="return validarApellido(this)" />
+            <span id="mensajeApellido" class="error"></span>
         </div>
 
         <div>
             <label for="dir">Dirección:</label>
             <input type="text" id="dir" /></div>
-
+            
         <div>
             <label for="tel">Telefono:</label>
-            <input type="text" id="tel" /></div>
+            <input type="text" id="tel"  name="Telefono"  onkeyup="return valTelefono(this)"/>
+            <span id="mensajeTelefono" class="error"></span>
+        </div>
+
+        <div>
+            <label for="tel">Fecha Nacimieto:</label>
+            <input type="text" id="FechaNac"  name="FechaNac"  placeholder="dd/mm/yyyy" onkeyup="return valFechNac(this)"/>
+            <span id="mensajeFechaNac" class="error"></span>
+        </div>
 
         <div>
             <label for="mail">E-mail:</label>
-            <input type="text" id="mail" />
+            <input type="text" id="mail" name="mail" onkeyup="return valMail(this)"/>
+            <span id="mensajeMail" class="error"></span>
         </div>
 
         <div>
             <label for="pass">Contraseña:</label>
-            <input type="password" id="pass" />
-
+            <input type="password" id="pass" name="contra" onkeyup="return valPass(this)"/>
+            <span id="mensajePass" class="error"></span>
         </div>
         <div>
             <input type="submit" type="enviar"></input></div>
