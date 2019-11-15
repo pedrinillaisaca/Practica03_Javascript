@@ -1,4 +1,7 @@
 @charset "utf8";
+h2{
+    text-align: center;
+}
 form {
     /* Sólo para centrar el formulario a la página */
     margin: 0 auto;
@@ -38,3 +41,16 @@ input {
     color: red;
     font-size: 10px;
 }
+
+
+.imagen{
+text-align: center;
+}
+
+
+.botones{
+text-align: center;
+
+padding-top: 15px;
+}
+
