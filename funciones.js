@@ -29,18 +29,21 @@ function valPass() {
                 b1 = true
             } else {
                 document.getElementById("mensajePass").innerHTML = 'ingresar minusculas'
+                document.getElementById("pass").style.border = "red 1px solid"
             }
 
             if (asc >= 65 && asc <= 90) {
                 b2 = true
             } else {
                 document.getElementById("mensajePass").innerHTML = 'ingresar mayusculas'
+                document.getElementById("pass").style.border = "red 1px solid"
             }
 
             if (asc == 36 || asc == 95 || asc == 64) {
                 b3 = true
             } else {
                 document.getElementById("mensajePass").innerHTML = 'ingresar carac Especiales'
+                document.getElementById("pass").style.border = "red 1px solid"
             }
 
         }
@@ -54,10 +57,8 @@ function valPass() {
         return true
     } else {
         document.getElementById("mensajePass").innerHTML = 'minimo 8 caracteres'
+        document.getElementById("pass").style.border = "red 1px solid"
     }
-
-
-
 }
 
 
@@ -76,11 +77,13 @@ function valMail() {
 
         } else {
             document.getElementById("mensajeMail").innerHTML = 'correo no valido'
-            return false
+            document.getElementById("mail").style.border = "red 1px solid"
+            return true
         }
     } else {
         document.getElementById("mensajeMail").innerHTML = 'correo no valido'
-        return false
+        document.getElementById("mail").style.border = "red 1px solid"
+        return true
     }
     return false
 }
@@ -111,25 +114,29 @@ function valFechNac() {
                     return true
                 } else {
                     document.getElementById("mensajeFechaNac").innerHTML = 'Año fuera de rango'
+                    document.getElementById("FechaNac").style.border = "red 1px solid"
+                    return true
                 }
-                return false
+
             } else {
                 document.getElementById("mensajeFechaNac").innerHTML = 'Meses Fuera de rango '
+                document.getElementById("FechaNac").style.border = "red 1px solid"
+                return true
             }
-            return false
+
         } else {
             document.getElementById("mensajeFechaNac").innerHTML = 'Dias Fuera de rango '
+            document.getElementById("FechaNac").style.border = "red 1px solid"
+            return true
         }
-        return false
+
     } else {
         document.getElementById("mensajeFechaNac").innerHTML = 'formato incorrecto'
-        return false
+        document.getElementById("FechaNac").style.border = "red 1px solid"
+        return true
     }
     return false
 }
-
-
-
 
 function valTelefono(elemento) {
     console.log(elemento.value)
@@ -144,13 +151,15 @@ function valTelefono(elemento) {
     } else {
         elemento.value = elemento.value.substring(0, elemento.value.length - 1)
         document.getElementById("mensajeTelefono").innerHTML = 'solo numeros, no mas de 10 digitos'
-        return false
+        document.getElementById("tel").style.border = "red 1px solid"
+        return true
     }
-    return true
+    return false
 }
 
 function validarApellido(elemento) {
     document.getElementById("mensajeApellido").innerHTML = ''
+    document.getElementById("ape").style.border = ""
     //console.log(elemento.value)
     if (elemento.value.length > 0) {
         c3 = true
@@ -165,11 +174,15 @@ function validarApellido(elemento) {
             if (vector.length > 2) {
                 elemento.value = elemento.value.substring(0, elemento.value.length - 1)
                 document.getElementById("mensajeApellido").innerHTML = 'No se haceptan mas de 2 apellidos'
+                document.getElementById("ape").style.border = "red 1px solid"
+                return true
             }
-            return true
+
         } else {
             elemento.value = elemento.value.substring(0, elemento.value.length - 1)
-            return false
+            document.getElementById("mensajeApellido").innerHTML = 'Se haceptan solo letras'
+            document.getElementById("ape").style.border = "red 1px solid"
+            return true
         }
     } else {
         return true
@@ -179,6 +192,7 @@ function validarApellido(elemento) {
 
 function validarNombres(elemento) {
     document.getElementById("mensajeNombre").innerHTML = ''
+    document.getElementById("name").style.border = ""
     //console.log(elemento.value)
     if (elemento.value.length > 0) {
         var miAscii = elemento.value.charCodeAt(elemento.value.length - 1)
@@ -186,24 +200,23 @@ function validarNombres(elemento) {
 
         if (miAscii >= 97 && miAscii <= 122 || miAscii == 32) {
             c2 = true
-            var vector = e.value.split(" ")
-            //
+            var vector = elemento.value.split(" ")
             console.log(vector.length)
             if (vector.length > 2) {
-                e.value = e.value.substring(0, e.value.length - 1)
+                elemento.value = elemento.value.substring(0, elemento.value.length - 1)
                 document.getElementById("mensajeNombre").innerHTML = 'No se haceptan mas de 2 nombres'
+                document.getElementById("name").style.border = "red 1px solid"
+                return true
             }
-
-            return true
-
         } else {
             elemento.value = elemento.value.substring(0, elemento.value.length - 1)
+            document.getElementById("mensajeNombre").innerHTML = 'Se aceptan solo letras'
+            document.getElementById("name").style.border = "red 1px solid"
             return false
         }
     } else {
         return true
     }
-
 }
 
 
@@ -211,6 +224,7 @@ function validarNombres(elemento) {
 function validarCedula() {
 
     var c = document.getElementById("ced").value
+    document.getElementById("ced").style.border = ("")
     //c=parseInt(c)
 
 
@@ -220,13 +234,19 @@ function validarCedula() {
 
         if (c.length > 10) {
             document.getElementById("mensajeCedula").innerHTML = 'error mas de 10 caracteres'
+            document.getElementById("ced").style.border = ("red 1px solid")
+            document.getElementById("ced").value = document.getElementById("ced").value.substring(0, document.getElementById("ced").value.length - 1)
+            return true
+        } 
+    }else {
+            document.getElementById("mensajeCedula").innerHTML = 'Ingresar solo numeros'
+            document.getElementById("ced").style.border = ("red 1px solid")
+            document.getElementById("ced").value = document.getElementById("ced").value.substring(0, document.getElementById("ced").value.length - 1)            
+            return true
         }
 
-    } else {
 
-        document.getElementById("mensajeCedula").innerHTML = 'Ingresar solo numeros'
-        document.getElementById("ced").value = ""
-    }
+
     console.log("validando ced " + c)
 
     var pares = 0
@@ -267,10 +287,13 @@ function validarCedula() {
         if (res == parseInt(c[c.length - 1])) {
             document.getElementById("mensajeCedula").innerHTML = '&#10004'
             c1 = true
+            return true
         } else {
 
             //if(res!=parseInt(c[c.length - 1])){
             document.getElementById("mensajeCedula").innerHTML = 'cedula invalida'
+            document.getElementById("ced").style.border = ("red 1px solid")
+            return true
         }
 
     }
@@ -310,15 +333,15 @@ function validar() {
         alert("Validacion Completa")
         return ban;
     }
-
+    return false
 }
 
 
-var csig=0
-var num=[]
-function iniciar(){
-    num=ale() 
-    csig=0   
+var csig = 0
+var num = []
+function iniciar() {
+    num = ale()
+    csig = 0
     console.log(num)
     document.getElementById("anterior").disabled = true;
     document.getElementById("siguiente").disabled = false;
@@ -327,34 +350,32 @@ function iniciar(){
 }
 
 
+function pulse(nombre) {
+    /**anterior    iniciar    siguiente     */
+    if (nombre == "siguiente") {
 
+        console.log(csig)
+        document.getElementById("ima").innerHTML = '<img src="img/f' + num[csig] + '.PNG">'
+        if (csig == 4) {
+            document.getElementById("anterior").disabled = false;
+            document.getElementById("siguiente").disabled = true;
+        }
+        csig++
+    }
+    if (nombre == "anterior") {
+        csig--
+        console.log(csig)
+        document.getElementById("ima").innerHTML = '<img src="img/f' + num[csig] + '.PNG">'
+        if (csig == 0) {
+            document.getElementById("anterior").disabled = true;
+            document.getElementById("siguiente").disabled = true;
+        }
 
-function pulse(nombre) {        
-    /**anterior    iniciar    siguiente     */    
-if (nombre=="siguiente") {
-    
-    console.log(csig)
-    document.getElementById("ima").innerHTML = '<img src="img/f'+num[csig]+'.PNG">'
-    if (csig==4) {
-        document.getElementById("anterior").disabled = false;
-        document.getElementById("siguiente").disabled = true;
     }
-    csig++
-}
-if (nombre=="anterior") {
-    csig--
-    console.log(csig)
-    document.getElementById("ima").innerHTML = '<img src="img/f'+num[csig]+'.PNG">'
-    if (csig==0) {
-        document.getElementById("anterior").disabled = true;
-        document.getElementById("siguiente").disabled = true;
-    }
-    
-}   
 
 }
 
-function ale(){
+function ale() {
     var arr = [parseInt(Math.random() * (10 - 1) + 1)]
     for (let i = 1; i < 5; i++) {
         let n = parseInt(Math.random() * (10 - 1) + 1)
@@ -366,12 +387,12 @@ function ale(){
 
         }
 
-    }  
-   return arr
+    }
+    return arr
 }
 
 
-    
+
 
 
 
